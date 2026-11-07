@@ -29,7 +29,7 @@ class X11GesturesExtension extends Extension {
   enable() {
     logger.log('Extension enabled');
 
-    if (Meta.is_wayland_compositor()) {
+    if (!Meta.is_wayland_compositor || Meta.is_wayland_compositor()) {
       logger.log('This extension is only for X11');
       return;
     }
